@@ -28,12 +28,12 @@
         .button:active {
             background-color: #d1d5da;
         }
-    </style>
-    <style>
-        body {
-          margin: 0;
+        html, body {
+            margin: 0;
+            overflow: hidden;
         }
-      </style>
+        
+    </style>
     <script type="importmap">
         {
             "imports": {
@@ -48,6 +48,9 @@
     <a href="D3_Model.html" class="button">3D Model</a>
     <a href="statistics.html" class="button">Statistics</a>
     <hr>
-    <script type="module" src = "JS/model_load.js"></script>
+    <input type="text" id="objectName" placeholder="Enter object name">
+<button id="navigateButton">Go</button>
+    <script type="module" src = "JS/main.js"></script>
+
 </body>
 </html>
