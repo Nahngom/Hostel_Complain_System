@@ -3,37 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3d Model</title>
-    <style>
-        .button {
-            display: inline-block;
-            background-color: #f3f4f6;
-            border: 1px solid #d1d5da;
-            border-radius: 6px;
-            padding: 6px 12px;
-            margin: 5px;
-            font-size: 14px;
-            color: #24292e;
-            text-decoration: none;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.2s, box-shadow 0.2s;
-        }
-
-        .button:hover {
-            background-color: #e1e4e8;
-            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .button:active {
-            background-color: #d1d5da;
-        }
-        html, body {
-            margin: 0;
-            overflow: hidden;
-        }
-        
-    </style>
+    <title>3D Model</title>
+    <link rel = "stylesheet" href = "./CSS/D3_Model.css">
     <script type="importmap">
         {
             "imports": {
@@ -44,13 +15,41 @@
     </script>
 </head>
 <body>
-    <a href="Home.html" class="button">Home</a>
-    <a href="D3_Model.html" class="button">3D Model</a>
-    <a href="statistics.html" class="button">Statistics</a>
-    <hr>
-    <input type="text" id="objectName" placeholder="Enter object name">
-<button id="navigateButton">Go</button>
-    <script type="module" src = "JS/main.js"></script>
+    <div class = "container">
 
+        <div class = "menu">
+            <ul>
+                <li><a href="Home.html" class="button">Home</a></li>
+                <li><a href="D3_Model.html" class="button">3D Model</a></li>
+                <li><a href="statistics.html" class="button">Statistics</a></li>
+            </ul>
+            <div class = "search">
+            <input type="text" id="objectName" placeholder="Enter object name">
+            <button id="navigateButton">Search</button>
+            </div>
+            <script type="module" src = "./JS/main.js"></script>
+        </div>
+        <div class = "model">
+            
+        </div>
+        <div class = "reportedItems">
+            <header>Report</header>
+    
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Object Name</th>
+                    </tr>
+                </thead>
+                <tbody id="report-table">
+                    <!-- Data will be inserted here -->
+                 </tbody>
+            </table>
+        
+            <script type="module" src = "./JS/Search_Reported.js"></script>
+        </div>
+
+    </div>
 </body>
 </html>
