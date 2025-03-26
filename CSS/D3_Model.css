@@ -1,0 +1,123 @@
+html, body {
+    height: 30;
+    overflow: hidden ;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.container {
+    width: 100%;
+    background: #3aa98a;
+}
+
+.menu ul {
+    display: inline-flex;
+    margin: 35px;
+    
+}
+
+.menu ul li {
+    list-style: none;
+    margin: 0 20px;
+    color: #b2b1b1;
+    cursor: pointer;
+}
+
+.button{
+    display: inline-block;
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5da;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 5px;
+    font-size: 14px;
+    color: #24292e;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.button:hover {
+    background-color: #314c6f;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.button:active {
+    background-color: #d1d5da;
+}
+
+/* Correct class selector */
+.reportedItems {
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #3aa98a;
+    padding: 10px;
+    overflow-y: auto; /* Enables scrolling if content overflows */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.reportedItems header {
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    background: #2e876e;
+    user-select: none;
+    font-weight: bold;
+    border-bottom: 2px solid #26735d;
+}
+
+.reportedItems table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+.reportedItems th,
+.reportedItems td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.reportedItems th {
+    background: #2e876e;
+    color: white;
+    font-weight: bold;
+}
+
+.reportedItems tbody tr:nth-child(odd) {
+    background: #f8f8f8;
+}
+
+.reportedItems tbody tr:hover {
+    background: #e0f7eb;
+}
+
+.clickable {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+.clickable:hover {
+    color: darkblue;
+}
+
+
+.search {
+    top: 40px;
+    right: 80px;
+    position: absolute;
+}
