@@ -1,55 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Model</title>
-    <link rel = "stylesheet" href = "./CSS/D3_Model.css">
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://cdn.jsdelivr.net/npm/three@0.131/build/three.module.js",
-                "jsm/": "https://cdn.jsdelivr.net/npm/three@0.131/examples/jsm/"
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>3D Model</title>
+        <link rel = "stylesheet" href = "./CSS/D3_Model.css">
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://cdn.jsdelivr.net/npm/three@0.131/build/three.module.js",
+                    "jsm/": "https://cdn.jsdelivr.net/npm/three@0.131/examples/jsm/"
+                }
             }
-        }
-    </script>
-</head>
-<body>
-    <div class = "container">
+        </script>
+    </head>
+    <body>
+        <div class = "container">
 
-        <div class = "menu">
-            <ul>
-                <li><a href="Home.html" class="button">Home</a></li>
-                <li><a href="D3_Model.html" class="button">3D Model</a></li>
-                <li><a href="statistics.html" class="button">Statistics</a></li>
-            </ul>
-            <div class = "search">
-            <input type="text" id="objectName" placeholder="Enter object name">
-            <button id="navigateButton">Search</button>
+            <div class = "menu">
+                <ul>
+                    <li><a href="Home.html" class="button">Home</a></li>
+                    <li><a href="D3_Model.html" class="button">3D Model</a></li>
+                    <li><a href="statistics.html" class="button">Statistics</a></li>
+                </ul>
+                <div class = "search">
+                <input type="text" id="objectName" placeholder="Enter object name">
+                <button id="navigateButton">Search</button>
+                </div>
+                <script type="module" src = "./JS/main.js"></script>
             </div>
-            <script type="module" src = "./JS/main.js"></script>
-        </div>
-        <div class = "model">
+            <div class = "model">
+                
+            </div>
+            <div class="reportedItems">
+                <header>Report</header>
             
-        </div>
-        <div class = "reportedItems">
-            <header>Report</header>
-    
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Object Name</th>
-                    </tr>
-                </thead>
-                <tbody id="report-table">
-                    <!-- Data will be inserted here -->
-                 </tbody>
-            </table>
-        
-            <script type="module" src = "./JS/Search_Reported.js"></script>
-        </div>
+                <div class="table-container">
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Object Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="report-table">
+                            <!-- Data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            
+                <script type="module" src="./JS/Search_Reported.js"></script>
+            </div>
 
-    </div>
-</body>
-</html>
+        </div>
+    </body>
+    </html>
