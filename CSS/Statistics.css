@@ -51,3 +51,16 @@ html, body {
 .button:active {
     background-color: #d1d5da;
 }
+
+.chart-wrapper {
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    border: 1px solid #ddd;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+#chart-container {
+    min-width: 600px; /* Ensures scrolling if needed */
+    height: 400px;
+}
