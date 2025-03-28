@@ -3,19 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel = "stylesheet" href = "./CSS/Statistics.css">
+    <title>Statistics</title>
+    <link rel="stylesheet" href="./CSS/Statistics.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class = "container">
-        <div class = "menu">
+    <div class="container">
+        <div class="menu">
             <ul>
                 <li><a href="Home.html" class="button">Home</a></li>
                 <li><a href="D3_Model.html" class="button">3D Model</a></li>
                 <li><a href="statistics.html" class="button">Statistics</a></li>
-
             </ul>
         </div>
+
+        <h2>Object Time Difference Chart</h2>
+        <div class="chart-wrapper">
+            <div id="chart-container">
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
     </div>
+
+    <script src="./JS/chartScript.js"></script>
 </body>
 </html>
