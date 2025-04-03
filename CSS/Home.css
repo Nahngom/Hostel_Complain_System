@@ -1,5 +1,11 @@
 html, body {
     height: 100%;
+
+
+    font-family: 'Poppins', sans-serif;
+    text-align:left;
+    justify-content:left;
+    align-items:initial;
 }
 
 
@@ -8,6 +14,18 @@ html, body {
     padding: 0;
     font-family: sans-serif;
 }
+
+section {
+    display: flex;
+    justify-content:initial;
+    align-items: initial;
+    width: 100%;
+    height: 100vh;
+    background: url('../Assets/HostelImg.jpg') no-repeat;
+    background-size: cover;
+    background-position: cen;
+}
+
 
 .container {
     width: 100%;
@@ -44,7 +62,7 @@ html, body {
 }
 
 .button:hover {
-    background-color: #314c6f;
+    background-color: #0a554a;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -58,4 +76,38 @@ html, body {
     position: absolute;
     text-decoration: none;
     color: #111010;
+}
+
+
+/* here is  wellcome text designing  */
+.welcome-text {
+    position: absolute;
+    top: 23%;
+    left: 5%;
+    transform: translateY(-50%); 
+    text-align: left;
+    color: white;
+}
+
+.welcome, .hcs {
+    font-size: 3.5rem;
+    font-weight:normal;
+    text-transform:none;
+    text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.3);
+    animation: glow 1.5s infinite alternate;
+}
+
+.welcome {
+    font-style: italic;
+    color: #00eaff; /* Light blue */
+}
+
+.hcs {
+    color: #00ff0d; /* Golden effect */
+}
+
+/* Glowing Animation */
+@keyframes glow {
+    0% { text-shadow: 0 0 10px #fff, 0 0 20px #00ff9d, 0 0 30px #00ff40; }
+    100% { text-shadow: 0 0 20px #fff, 0 0 30px #00ff7b, 0 0 40px #00ff73; }
 }
