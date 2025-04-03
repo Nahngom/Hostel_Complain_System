@@ -52,7 +52,7 @@ html, body {
     background-color: #d1d5da;
 }
 
-/* Correct class selector */
+/* crt class selector */
 .reportedItems {
     position: fixed;
     left: 0;
@@ -115,6 +115,28 @@ html, body {
     color: darkblue;
 }
 
+.table-container {
+    max-height: 400px; /* Adjust as needed */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+}
 
 .search {
     top: 40px;
