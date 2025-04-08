@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel = "stylesheet" href = "./CSS/AboutUs.css">
+</head>
+<body>
+    <div class = "container">
+        <div class = "menu">
+            <ul>
+                <li><a href="Home.html" class="button">Home</a></li>
+                <li><a href="D3_Model.html" class="button">3D Model</a></li>
+                <li><a href="statistics.html" class="button">Statistics</a></li>
+                <li><a href="AboutUs.html" class="button">About Us</a></li>
+            </ul>
+        </div>
+
+        <div class = "intro-container">
+           <h2 class = "intro-title"> Hii! <span class = "highlight"> Welcome </span></h2>
+        </div>
+        <br>
+
+        <div class = "para">
+        <div>
+            <h3>This Project Hostel Complaint Management System is designed to simplify the process of lodging and resolving complaints within hostel premises. Whether it's maintenance issues or general hostel grievances, our system ensures QUICK and TRANSPARANT complaint handling.</h3>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <div>
+            <h1>Purpose of this project</h1>
+            <h3>Managing complains manually can be slow and inefficient. Our System streamline this process by submitting complains to submit complains online which helps hostel adminsiarators to track complains and fix the complain in timely manner. This system also keep track of delay of respond to a complain which helps rate the hostel services. We aim to enhance hostel living conditions by improving communication between students and authorities</h3>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div>
+            <h1>Features</h1>
+            <h3>
+                1. Easy complain submission<br>
+                <br>
+                2. Status Tracking<br>
+                <br>
+                3. Admin Panal<br>
+                <br>
+                4. Notification and Alerts<br>
+                <br>
+                5. Secure and User-Friendly<br>
+            </h3>
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <div>
+            <h1>Future Enhancement</h1>
+            <h3>
+                1. Real time hostel guide for upcoming juniors<br>
+                <br>
+                2. 
+            </h3>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div>
+            <h1>Project Contributors</h1>
+            <h3>
+                NAHNGOM(Team Leader), contact : 202311054@diu.iiitvadodara.ac.in<br>
+                <br>
+                Akarshan, contact : 202311004@diu.iiitvadodara.ac.in<br>
+                <br>
+                Rohini, contact : 202311019@diu.iiitvadodara.ac.in<br>
+                <br>
+                Shivangi, contact : 202311079@diu.iiitvadodara.ac.in<br>
+                <br>
+            </h3>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div>
+            <h2>Project Availability</h2><br>
+            <h3>You are always Welcome to contribute in enhancing the project.</h3><br>
+            <a href="https://github.com/Nahngom/Hostel_Complain_System" target="_blank">Github Link <a href=""></a>
+
+
+        </div>
+        </div>
+
+    </div>
+    <script>
+        const token = localStorage.getItem("token");
+
+    if (!token) {
+        alert("You must log in first!");
+        window.location.href = "index.html"; // Redirect to login
+    } else {
+        fetch("http://localhost:3000/verify-token", {
+            method: "GET",
+            headers: {
+                "Authorization": token
+            }
+        })
+        .then(res => {
+            if (!res.ok) throw new Error("Invalid or expired token");
+            return res.json();
+        })
+        .then(data => {
+            console.log("User verified:", data.user);
+            // ✅ Load user-specific content here if needed
+
+            const loginedemail  = data.user.email;
+        })
+        .catch(err => {
+            console.error("Token error:", err);
+            alert("Session expired. Please log in again.");
+            localStorage.removeItem("token");
+            window.location.href = "index.html"; // Redirect to login
+        });
+    }
+    </script>
+</body>
+</html>
