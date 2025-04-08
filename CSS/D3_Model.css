@@ -1,10 +1,9 @@
 html, body {
-    height: 30;
-    overflow: hidden ;
+    height: 100%;
+    overflow: hidden;
 }
 
-
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -18,7 +17,6 @@ html, body {
 .menu ul {
     display: inline-flex;
     margin: 35px;
-    
 }
 
 .menu ul li {
@@ -28,7 +26,7 @@ html, body {
     cursor: pointer;
 }
 
-.button{
+.button {
     display: inline-block;
     background-color: #f3f4f6;
     border: 1px solid #d1d5da;
@@ -52,16 +50,48 @@ html, body {
     background-color: #d1d5da;
 }
 
-/* crt class selector */
+/* Sidebar (reportedItems) */
 .reportedItems {
     position: fixed;
-    left: 0;
+    left: -290px; /* Hidden initially */
     width: 250px;
     height: 100%;
     background: #3aa98a;
     padding: 10px;
-    overflow-y: auto; /* Enables scrolling if content overflows */
+    overflow-y: auto;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out;
+    z-index: 1000; /* Keep it below the toggle button */
+}
+
+/* Sidebar open state */
+.reportedItems.open {
+    left: 0;
+}
+
+/* Sidebar Toggle Icon */
+.toggle-icon {
+    position: fixed;
+    left: 10px;
+    top: 120px; /* Keep it aligned with the top bar */
+    font-size: 24px;
+    background: #2e876e;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1100; /* Higher than sidebar so it stays clickable */
+}
+
+/* When sidebar is open, move the icon */
+.reportedItems.open + .toggle-icon {
+    left: 260px;
+}
+
+/* Hover effect for the icon */
+.toggle-icon:hover {
+    background: #26735d;
 }
 
 .reportedItems header {
@@ -138,8 +168,63 @@ thead {
     z-index: 1;
 }
 
+/* Search Bar Container */
 .search {
+    position: absolute;
     top: 40px;
     right: 80px;
-    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between input and button */
+}
+
+/* Search Input */
+.search input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 220px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Search Input - Focus Effect */
+.search input:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Search Button */
+.search button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Search Button - Hover Effect */
+.search button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .search {
+        position: static; /* Prevents overlap */
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .search input {
+        width: 100%;
+    }
+
+    .search button {
+        width: 100px;
+    }
 }
