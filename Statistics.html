@@ -14,6 +14,7 @@
                 <li><a href="Home.html" class="button">Home</a></li>
                 <li><a href="D3_Model.html" class="button">3D Model</a></li>
                 <li><a href="statistics.html" class="button">Statistics</a></li>
+                <li><a href="AboutUs.html" class="button">About Us</a></li>
             </ul>
         </div>
 
@@ -26,5 +27,36 @@
     </div>
 
     <script src="./JS/chartScript.js"></script>
+    <script>
+        const token = localStorage.getItem("token");
+
+    if (!token) {
+        alert("You must log in first!");
+        window.location.href = "index.html"; // Redirect to login
+    } else {
+        fetch("http://localhost:3000/verify-token", {
+            method: "GET",
+            headers: {
+                "Authorization": token
+            }
+        })
+        .then(res => {
+            if (!res.ok) throw new Error("Invalid or expired token");
+            return res.json();
+        })
+        .then(data => {
+            console.log("User verified:", data.user);
+            // ✅ Load user-specific content here if needed
+
+            const loginedemail  = data.user.email;
+        })
+        .catch(err => {
+            console.error("Token error:", err);
+            alert("Session expired. Please log in again.");
+            localStorage.removeItem("token");
+            window.location.href = "index.html"; // Redirect to login
+        });
+    }
+    </script>
 </body>
 </html>
