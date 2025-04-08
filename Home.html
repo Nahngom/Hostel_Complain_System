@@ -4,30 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel = "stylesheet" href = "./CSS/Home.css">
+    <link rel="stylesheet" href="./CSS/Home.css">
 </head>
 <body>
-    <div class = "container">
-        <div class = "menu">
-            <ul>
-                <li><a href="Home.html" class="button">Home</a></li>
-                <li><a href="D3_Model.html" class="button">3D Model</a></li>
-                <li><a href="statistics.html" class="button">Statistics</a></li>
+    <div class="container">
+        <section>
+            <div class="menu">
+                <ul>
+                    <li><a href="Home.html" class="button">Home</a></li>
+                    <li><a href="D3_Model.html" class="button">3D Model</a></li>
+                    <li><a href="statistics.html" class="button">Statistics</a></li>
+                    <li><a href="AboutUs.html" class="button">About Us</a></li>
+                    <li id="login-menu"><a href="Login_Page.html" class="login-btn">Login</a></li>
 
-                <li><a href="Login_Page.html" class = "login-btn">Login</a></li>
-            </ul>
-        </div>
+                </ul>
+            </div>
+
+            <header class="welcome-text">
+                <h1 class="welcome">Welcome to</h1>
+                <h1 class="hcs">Hostel Complaint System</h1>
+            </header>
+        </section>
     </div>
+    <script>
+        const token = localStorage.getItem("token");
+    
+        if (!token) {
+           
+        } else {
+            fetch("http://localhost:3000/verify-token", {
+                method: "GET",
+                headers: {
+                    "Authorization": token
+                }
+            })
+            .then(res => {
+                if (!res.ok) throw new Error("Invalid or expired token");
+                return res.json();
+            })
+            .then(data => {
+                const userEmail = data.user.email;
+    
+                const loginMenu = document.getElementById("login-menu");
+    
+                loginMenu.innerHTML = `
+                <div class="profile-container">
+                    <button class="profile-btn" id="profile-toggle">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile Icon">
+                    </button>
+                    <div class="profile-dropdown" id="profile-dropdown">
+                        <p>${userEmail}</p>
+                        <button id="logout-btn">Sign Out</button>
+                    </div>
+                </div>
+            `;
+            
+                const profileBtn = loginMenu.querySelector(".profile-btn");
+                const dropdown = loginMenu.querySelector("#profile-dropdown");
+                const logoutBtn = loginMenu.querySelector("#logout-btn");
+    
+                profileBtn.addEventListener("click", () => {
+                    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+                });
+    
+                logoutBtn.addEventListener("click", () => {
+                    localStorage.removeItem("token");
+                    window.location.href = "Login_Page.html";
+                });
+    
+                // Optional: Close dropdown when clicking outside
+                window.addEventListener("click", (e) => {
+                    if (!loginMenu.contains(e.target)) {
+                        dropdown.style.display = "none";
+                    }
+                });
+            })
+            .catch(err => {
+                console.error("Token error:", err);
+                localStorage.removeItem("token");
+                window.location.href = "Login_Page.html";
+            });
+        }
+    </script>
+    
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 
