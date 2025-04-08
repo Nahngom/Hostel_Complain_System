@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./CSS/LoginStyle.css">
+</head>
+<body>
+
+<section>
+    <div class="login-box">
+        <form action="">
+            <h2>Login</h2>
+
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="email" id="email" required>
+                <label for="email">Email</label>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="password" id="password" required>
+                <label for="password">Password</label>
+            </div>
+
+            <button type="submit">Login</button>
+            <div class="register-link">
+                <p>Don't have an account? <a href="Sign_Up.html">Sign Up</a></p>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script>
+    document.querySelector("form").addEventListener("submit", async (event) => {
+        event.preventDefault();
+    
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+    
+        const response = await fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
+    
+        const result = await response.json();
+
+        if (result.token) {
+            localStorage.setItem("token", result.token); // ✅ Store token locally
+            alert("Login successful!");
+            window.location.href = "Home.html"; // 🔐 Redirect to protected page
+        } else {
+            alert(result.error || "Login failed");
+        }
+    });
+</script>
+
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./CSS/LoginStyle.css">
+</head>
+<body>
+
+<section>
+    <div class="login-box">
+        <form action="">
+            <h2>Login</h2>
+
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="email" id="email" required>
+                <label for="email">Email</label>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="password" id="password" required>
+                <label for="password">Password</label>
+            </div>
+
+            <button type="submit">Login</button>
+            <div class="register-link">
+                <p>Don't have an account? <a href="Sign_Up.html">Sign Up</a></p>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script>
+    document.querySelector("form").addEventListener("submit", async (event) => {
+        event.preventDefault();
+    
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+    
+        const response = await fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
+    
+        const result = await response.json();
+
+        if (result.message) {
+            alert("Login successful!");
+            window.location.href = "Home.html"; // Redirect on success
+        } else {
+            alert(result.error);
+        }
+        
+    });
+</script>
+
+</body>
+</html> -->
