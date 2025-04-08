@@ -111,3 +111,65 @@ section {
     0% { text-shadow: 0 0 10px #fff, 0 0 20px #00ff9d, 0 0 30px #00ff40; }
     100% { text-shadow: 0 0 20px #fff, 0 0 30px #00ff7b, 0 0 40px #00ff73; }
 }
+.profile-container {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    right: 35px;
+    top: 35px;
+}
+
+.profile-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    z-index: 999;
+    padding: 10px;
+}
+
+.profile-dropdown p {
+    margin: 0;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+.profile-dropdown button {
+    background: none;
+    border: none;
+    color: #333;
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.profile-dropdown button:hover {
+    background-color: #f0f0f0;
+}
